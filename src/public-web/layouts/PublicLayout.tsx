@@ -1,82 +1,39 @@
 import React from "react";
-import { HiOutlineShoppingCart, HiOutlineKey, HiSearch } from "react-icons/hi";
-import { FcInspection } from "react-icons/fc";
-import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { PublicNavbar } from "../components/PublicNavbar";
+import bgImage from '../../assets/public-background.png';
+import { PublicFooter } from "../components/PublicFooter";
 
-export const HeroSelection = () => {
-  const navigate = useNavigate();
 
+const PublicLayout = () => {
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-center justify-start px-4 pt-24 pb-20 animate-fade-in z-10 overflow-x-hidden">
+    <div className="min-h-screen w-full relative overflow-x-hidden flex flex-col">
       
-      {/* --- THE FULL WIDTH BLUE ARC BACKGROUND --- */}
-      <div className="absolute top-0 left-0 w-full h-[50%] bg-blue-200/10 dark:bg-blue-900/20 backdrop-blur-md -z-10 [clip-path:ellipse(70%_100%_at_50%_0%)] border-b border-blue-200/30"></div>
-
-      <div className="pointer-events-auto flex flex-col items-center w-full max-w-6xl">
+      {/* 1. DYNAMIC BACKGROUND LAYER */}
+      <div className="fixed inset-0 z-0 bg-white dark:bg-[#0F172A] transition-colors duration-500">
         
-        {/* 1. Main Headline */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500">
-            One of Secure <br /> Vehicle Marketplace
-          </h1>
-          <p className="text-blue-600 dark:text-blue-400 font-bold tracking-[0.2em] uppercase text-xl mt-2 transition-colors duration-500">
-            Escrow. Verified. Delivered.
-          </p>
-        </div>
-
-        {/* 2. Selection Cards Row (IDENTICAL TO YOUR ORIGINAL) */}
-        <div className="mt-10 flex flex-col md:flex-row items-stretch gap-6 w-full max-w-5xl relative mb-16">
-          
-          {/* BUYER CARD */}
-          <div onClick={() => navigate('/')} className="group w-full md:w-1/2 cursor-pointer">
-            <div className="bg-gray-900/40 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:border-blue-500/50 transition-all duration-500 hover:bg-gray-800/60 text-center">
-              <HiOutlineShoppingCart className="text-6xl mx-auto mb-6 group-hover:scale-110 transition-transform text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500" />
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500">Buy</h2>
-              <p className="font-medium tracking-tight font-black text-slate-900 dark:text-white tracking-tighter transition-colors duration-500">
-                START SECURE ACQUISITION <br /> & VERIFY SELLER
-              </p>
-            </div>
-          </div>
-
-          {/* INSPECTOR (Maintaining your md:-mt-100) */}
-          <div onClick={() => navigate('/')} className="group w-full md:w-1/2 cursor-pointer md:-mt-100">
-            <div className="bg-gray-900/40 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:border-blue-500/50 transition-all duration-500 hover:bg-gray-800/60 text-center">
-              <FcInspection className="text-white text-6xl mx-auto mb-6 group-hover:scale-110 transition-transform" />
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500">INSPECT</h2>
-              <p className="font-medium tracking-tight font-black text-slate-900 dark:text-white tracking-tighter transition-colors duration-500">
-                Want to Register as an Inspector <br /> ENTER PORTAL & Sign Up/Sign In
-              </p>
-            </div>
-          </div>
-
-          {/* SELLER CARD */}
-          <div onClick={() => navigate('/verify')} className="group w-full md:w-1/2 cursor-pointer">
-            <div className="bg-gray-900/40 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:border-blue-500/50 transition-all duration-500 hover:bg-gray-800/60 text-center">
-              <HiOutlineKey className="text-6xl mx-auto mb-6 group-hover:scale-110 transition-transform text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500" />
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500">Sell</h2>
-              <p className="font-medium tracking-tight font-black text-slate-900 dark:text-white tracking-tighter transition-colors duration-500">
-                HAVE A PIN? <br /> ENTER PORTAL & SUBMIT DATA
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* 3. Global Search Explorer (Maintaining your sizing) */}
-        <div className="mb-50 w-full max-w-xl">
-          <div className="relative group">
-            <input 
-              type="text" 
-              placeholder="Search Marketplace, VIN or Transaction ID..." 
-              className="tracking-tight font-black w-full bg-gray-900/20 border border-white/10 rounded-full py-4 px-8 text-slate-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all tracking-tighter transition-colors duration-500 shadow-xl"
-            />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 bg-blue-600 p-2.5 rounded-full text-white hover:bg-blue-500 cursor-pointer">
-              <HiSearch className="w-5 h-5" />
-            </div>
-          </div>
-        </div>
-
+        {/* This div only appears in Dark Mode */}
+        <div className="hidden dark:block absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900 to-slate-950"></div>
+        
+        {/* Subtle grid that works in both, but is faint */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
       </div>
-    </div>
+
+      {/* 2. THE CONTENT LAYER */}
+      <div className="relative z-10 flex flex-col min-h-screen w-full">
+        <PublicNavbar />
+        
+        <main className="flex-grow w-full relative pt-20 md:pt-28"> 
+          <div className="w-full h-full">
+            <Outlet />
+          </div>
+        </main>
+        
+        <PublicFooter />
+        </div>
+      </div>
+    
   );
-};
+}
+
+export default PublicLayout;
