@@ -21,7 +21,7 @@ export const PublicNavbar = () => {
   return (
     <Navbar fluid className="fixed top-0 left-0 w-full z-[999] !bg-[#191F29] border-b border-gray-800 py-3 transition-none"
 >
-      <div className="h-30 w-full max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4">
+      <div className="w-full max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4">
 
         {/* Brand Logo */}
     <Link to="/" className="flex items-center gap-2">
