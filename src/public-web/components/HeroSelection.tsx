@@ -7,11 +7,10 @@ export const HeroSelection = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="mb-200 relative md:absolute md:inset-0 flex flex-col items-center justify-center px-4 py-10 md:py-0 animate-fade-in z-10 pointer-events-auto">
+    <div className="min-h-screen w-full relative flex flex-col items-center justify-start px-4 pt-24 pb-20 animate-fade-in z-10 overflow-x-hidden">
       
       {/* --- THE FULL WIDTH BLUE ARC BACKGROUND --- */}
-      {/* We use w-screen and -ml to break out of any parent containers */}
-      <div className="mt-110 absolute top-0 w-screen h-[50%] bg-blue-200/100 dark:bg-blue-900/20 backdrop-blur-md -z-10 [clip-path:ellipse(70%_100%_at_50%_0%)] border-b border-blue-200/30"></div>
+      <div className="absolute mt-50 left-0 w-full h-[50%] bg-blue-500/30 dark:bg-blue-900/20 backdrop-blur-md -z-10 [clip-path:ellipse(70%_100%_at_50%_0%)] border-b border-blue-200/30"></div>
 
       <div className="pointer-events-auto flex flex-col items-center w-full max-w-6xl">
         
@@ -26,7 +25,7 @@ export const HeroSelection = () => {
         </div>
 
         {/* 2. Selection Cards Row (IDENTICAL TO YOUR ORIGINAL) */}
-        <div className="mt-70 flex flex-col md:flex-row items-center gap-6 w-full max-w-6xl relative mb-10">
+        <div className="mt-40 flex flex-col md:flex-row items-stretch gap-6 w-full max-w-5xl relative mb-16">
           
           {/* BUYER CARD */}
           <div onClick={() => navigate('/')} className="group w-full md:w-1/2 cursor-pointer">
@@ -40,7 +39,7 @@ export const HeroSelection = () => {
           </div>
 
           {/* INSPECTOR (Maintaining your md:-mt-100) */}
-          <div onClick={() => navigate('/')} className="group w-full md:w-1/2 cursor-pointer md:-mt-100">
+          <div onClick={() => navigate('/')} className="group w-full md:w-1/2 cursor-pointer md:-mt-30">
             <div className="bg-gray-900/40 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:border-blue-500/50 transition-all duration-500 hover:bg-gray-800/60 text-center">
               <FcInspection className="text-white text-6xl mx-auto mb-6 group-hover:scale-110 transition-transform" />
               <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter uppercase transition-colors duration-500">INSPECT</h2>
