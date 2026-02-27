@@ -7,12 +7,12 @@ export const HeroSelection = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-center justify-start px-4 pt-24 pb-20 animate-fade-in z-10 overflow-x-hidden">
+    <div className="w-full relative flex flex-col items-center justify-start px-4 mt-10 animate-fade-in z-10 overflow-x-hidden">
       
       {/* --- THE FULL WIDTH BLUE ARC BACKGROUND --- */}
-      <div className="absolute mt-50 left-0 w-full h-[50%] bg-blue-500/30 dark:bg-blue-900/20 backdrop-blur-md -z-10 [clip-path:ellipse(70%_100%_at_50%_0%)] border-b border-blue-200/30"></div>
+      <div className="mt-56 absolute top-0 left-0 w-full h-[70%] bg-blue-500/30 dark:bg-blue-900/20 backdrop-blur-md -z-10 [clip-path:ellipse(70%_100%_at_50%_0%)] border-b border-blue-200/30"></div>
 
-      <div className="pointer-events-auto flex flex-col items-center w-full max-w-6xl">
+      <div className="flex flex-col items-center w-full max-w-6xl">
         
         {/* 1. Main Headline */}
         <div className="text-center mb-10">
@@ -63,7 +63,7 @@ export const HeroSelection = () => {
         </div>
 
         {/* 3. Global Search Explorer (Maintaining your sizing) */}
-        <div className="mb-50 w-full max-w-xl">
+        <div className="w-full max-w-xl">
           <div className="relative group">
             <input 
               type="text" 
