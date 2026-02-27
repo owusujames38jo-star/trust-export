@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "flowbite/plugin";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../node_modules/flowbite-react";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* This only triggers when the 'dark' class is on the body */
+.dark .leaflet-tile {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%) !important;
+}
+
+.dark .leaflet-container {
+    background: #111827; /* Matches Flowbite's gray-900 */
+}
+
+
+
