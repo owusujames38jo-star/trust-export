@@ -4,21 +4,34 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/trust-export/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-app</title>
-    <link rel="manifest" href="./manifest.json">
+    <title>TrustAuto</title>
+
     <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('SW Registered!', reg))
-      .catch(err => console.log('SW Failed!', err));;
-    });
-  }
-</script>
-    <script type="module" crossorigin src="/trust-export/assets/index-BmFg1BuW.js"></script>
+      (function() {
+        try {
+          const theme = localStorage.getItem('color-theme');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="manifest" href="./manifest.json">
+    <script type="module" crossorigin src="/trust-export/assets/index-CcZ-Qlj8.js"></script>
     <link rel="stylesheet" crossorigin href="/trust-export/assets/index-DAWd5tg-.css">
   </head>
   <body>
     <div id="root"></div>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>
